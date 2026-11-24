@@ -32,6 +32,13 @@ jobs:
           unzip -q blind-depths.zip -d _tmp
           cp -r _tmp/blind-depths/. www/
           ls -R www
+          
+       - name: Apply update zip
+         run: |
+          if [ -f blind-depths-update.zip ]; then
+            unzip -oq blind-depths-update.zip -d _upd
+            cp -r _upd/blind-depths/. www/
+            fi
 
       - name: Check JavaScript for syntax errors
         run: |
